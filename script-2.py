@@ -148,8 +148,12 @@ def fill_puzzle(
     while i < n_chars:
         indice_colocacion = V[i] * C + V[i + 1]
         # print(indice_colocacion, (V[i], V[i + 1]))
-        if indice_colocacion <= F * C:
-            matriz[indice_colocacion] = chr(182)
+        if indice_colocacion < F * C:
+            if indice_colocacion >= 0:
+                matriz[indice_colocacion] = chr(182)
+            else:
+                # Index out of Bounds
+                return 0                
         else:
             # Index out of Bounds
             return 0
